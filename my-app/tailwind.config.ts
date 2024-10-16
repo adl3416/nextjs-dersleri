@@ -8,9 +8,19 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      container:{
+        padding: '2rem'
+      },
+
+      fontSize:{
+          '7xl': '13.052rem',
+      },
+
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        myprimary: "#507687",
+        mysecond: "#F95454",
       },
     },
   },
