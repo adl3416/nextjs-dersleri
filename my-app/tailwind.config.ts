@@ -21,6 +21,7 @@ const config: Config = {
         foreground: "var(--foreground)",
         myprimary: "#507687",
         mysecond: "#F95454",
+        mypink: "#D91656",
       },
     },
   },
