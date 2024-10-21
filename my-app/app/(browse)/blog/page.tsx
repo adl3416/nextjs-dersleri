@@ -1,4 +1,6 @@
 'use client'
+import BlogTipOne from '@/components/blog/tip1';
+import BlogTipTwo from '@/components/blog/tip2';
 import { Blogs, BlogsType } from '@/constans';
 import React, { useEffect, useState } from 'react'
 
@@ -13,20 +15,33 @@ const BlogPage = () => {
   return (
     <>
 
-    <div className='container mx-auto mt-8'>
-      <h2 className='text-2xl font-semibold text-center'> Tip 1 </h2>
-      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8'>
-          {blogs.map((blog,index)=>(
-            <div key={index}>{blog.title}</div>
+      <div className='container mx-auto mt-8'>
+        <h2 className='text-2xl font-semibold text-center'>Tip 1</h2>
+        <div className='grid  grid-cols-1  lg:grid-cols-3 xl:grid-cols-4 gap-8'>
+          {blogs.map((blog, index)=>(
+           <BlogTipOne key={index} 
+           title={blog.title}
+           active={blog.active}
+           description={blog.description}
+           id={blog.id}
+           image={blog.image}
+           
+           />
           ))}
+
+        </div>
       </div>
-    </div>
 
 
-    <div className='container mx-auto mt-8'>
-      <h2 className='text-2xl font-semibold text-center'> Tip 2 </h2>
-    </div>
+ <div className='container mx-auto mt-8'>
+        <h2 className='text-2xl font-semibold text-center'>Tip 2</h2>
+        <div className='grid  grid-cols-1  lg:grid-cols-3 xl:grid-cols-4 gap-8'>
+          {blogs.map((blog, index)=>(
+          <BlogTipTwo blog={blog} key={index}/>
+          ))}
 
+        </div>
+      </div> 
     </>
   )
 }
