@@ -1,3 +1,4 @@
+/*
 import React from 'react'
 
 interface BlogDetailsProps{
@@ -13,3 +14,5 @@ const BlogDetails = ( {params}:BlogDetailsProps) => {
 }
 
 export default BlogDetails
+
+*/

@@ -37,7 +37,13 @@ const BlogPage = () => {
         <h2 className='text-2xl font-semibold text-center'>Tip 2</h2>
         <div className='grid  grid-cols-1  lg:grid-cols-3 xl:grid-cols-4 gap-8'>
           {blogs.map((blog, index)=>(
-          <BlogTipTwo blog={blog} key={index}/>
+          <BlogTipTwo  key={index}
+          title={blog.title}
+           active={blog.active}
+           description={blog.description}
+           id={blog.id}
+           image={blog.image}
+          />
           ))}
 
         </div>
