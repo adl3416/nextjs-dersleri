@@ -27,7 +27,7 @@ const Header = () => {
       </div>
 
 
-      <header className="bg-mypink p-4 shadow-2xl ">
+      <header className="bg-myblue p-4 shadow-2xl ">
         <div className="container mx-auto flex  justify-between items-center">
           <div className="text-white  text-lg md:text-xl lg:text-3xl xl:text-2xl  font-semibold hover:text-gray-200">Logo</div>
 

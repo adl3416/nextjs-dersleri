@@ -22,6 +22,7 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        myblue: "#090979",
         myprimary: "#507687",
         mysecond: "#F95454",
         mypink: "#D91656",
