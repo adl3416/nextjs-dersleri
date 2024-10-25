@@ -12,7 +12,7 @@ const RoutesLayout = ({children}:RoutesLayoutProps) => {
 
     <>
         <Header/>
-        {children}
+        {children}   {/* anasayfa page */}
         <Footer/>
     </>
   )
