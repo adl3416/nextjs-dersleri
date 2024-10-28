@@ -6,3 +6,7 @@
 .bgone{
   @apply  bg-white dark:bg-mycolor-100;
 }
+
+.bgHeader{
+  @apply bg-mycolor-300 hover:bg-mycolor-300 dark:text-black dark:bg-mycolor-300 dark:hover:bg-mycolor-300 !important;
+}
