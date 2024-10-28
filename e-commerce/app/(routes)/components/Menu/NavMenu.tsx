@@ -11,52 +11,37 @@ import {
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu"
+import { categories } from "@/constans";
+import { usePathname } from "next/navigation";
 
 
-const categories: { title: string; href: string; description: string }[] = [
-    {
-      title: "Erkek Giyim",
-      href: "/kategoriler/erkek-giyim",
-      description:
-        "Takım elbise, tişört, gömlek ve pantolon gibi erkekler için geniş giyim seçenekleri.",
-    },
-    {
-      title: "Kadın Giyim",
-      href: "/kategoriler/kadin-giyim",
-      description:
-        "Elbise, bluz, etek ve pantolon gibi kadınlar için çeşitli giyim ürünleri.",
-    },
-    {
-      title: "Aksesuarlar",
-      href: "/kategoriler/aksesuarlar",
-      description:
-        "Çanta, kemer, şapka gibi kıyafetlerinizi tamamlayacak aksesuar çeşitleri.",
-    },
-    {
-      title: "Ayakkabılar",
-      href: "/kategoriler/ayakkabilar",
-      description:
-        "Spor, günlük ve klasik tarzda erkek ve kadın ayakkabı koleksiyonları.",
-    },
-    {
-      title: "Çocuk Giyim",
-      href: "/kategoriler/cocuk-giyim",
-      description:
-        "Kız ve erkek çocuklar için günlük ve özel günlere uygun giyim seçenekleri.",
-    },
-    {
-      title: "İndirimli Ürünler",
-      href: "/kategoriler/indirim",
-      description:
-        "Sezon sonu indirimleri ve kampanyalı ürünleri keşfedin.",
-    },
-  ];
 
 const NavMenu = () => {
+
+    const pathname=usePathname();
+    //console.log(pathname);
+
   return (
     <div className="flex justify-center items-center py-2 bg-mycolor-300">
        <NavigationMenu>
       <NavigationMenuList>
+
+      <NavigationMenuItem>
+          <Link href="/" legacyBehavior passHref>
+            <NavigationMenuLink className={`${navigationMenuTriggerStyle()} bgHeader ${pathname==="/" ? "activeHeader" : ""}`}>
+              Home
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+
+        <NavigationMenuItem>
+          <Link href="/about" legacyBehavior passHref>
+          <NavigationMenuLink className={`${navigationMenuTriggerStyle()} bgHeader ${pathname==="/about" ? "activeHeader" : ""}`}>
+             About Us
+            </NavigationMenuLink>
+          </Link>
+        </NavigationMenuItem>
+
         <NavigationMenuItem>
           <NavigationMenuTrigger className="bgHeader">Recent Product</NavigationMenuTrigger>
           <NavigationMenuContent>
@@ -92,8 +77,8 @@ const NavMenu = () => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <NavigationMenuTrigger className="bgHeader">Categories</NavigationMenuTrigger>
-          <NavigationMenuContent>
+          <NavigationMenuTrigger className={`bgHeader ${pathname.startsWith ('/shop') ? "activeHeader" : ""}`}>Categories</NavigationMenuTrigger>
+          <NavigationMenuContent>                                            {/* senin yakalaman gereken deger shop,eger durum shop sa sen bana activeHeader clasini getir. degilse getirme   */}
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {categories.map((component) => (
                 <ListItem
@@ -108,9 +93,9 @@ const NavMenu = () => {
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <Link href="/docs" legacyBehavior passHref>
-            <NavigationMenuLink className={`${navigationMenuTriggerStyle()} bgHeader`}>
-              Documentation
+          <Link href="/contact" legacyBehavior passHref>
+          <NavigationMenuLink className={`${navigationMenuTriggerStyle()} bgHeader ${pathname==="/contact" ? "activeHeader" : ""}`}>
+              Contact
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
