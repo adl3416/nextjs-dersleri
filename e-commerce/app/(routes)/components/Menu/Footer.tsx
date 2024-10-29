@@ -9,10 +9,22 @@ const Footer = () => {
 
   const router =useRouter();
 
+  const handleclick=()=>{
+    router.push("/")
+  }
+
   return (
     <div className='text-sm text-center flex flex-col p-4'>
-      <div><Button variant='link'> All righ  Reserverd ECommerce website</Button> </div>
-      <div>  <Link href={`https://react-weather-adl.vercel.app/`} target='_blank'> Copyright @ AKar  </Link> </div>
+
+      <div>
+        <Button variant='link' onClick={handleclick}> All righ  Reserverd ECommerce website</Button> {/*  yada ()=> router.push("/") kullabiliriz */}
+      </div>
+
+
+      <div>
+          <Link href={`https://react-weather-adl.vercel.app/`} target='_blank'> Copyright @ AKar  </Link> 
+      </div>
+
     </div>
   )
 }
