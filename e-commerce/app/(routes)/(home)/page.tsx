@@ -13,10 +13,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Menu } from "lucide-react";
+import Hero from "../components/Hero";
 
 export default function Home() {
   return (
  <div>
+
+  <Hero/>
   Home
  
  </div>
