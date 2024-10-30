@@ -21,8 +21,13 @@ const Header = () => {
     const router=useRouter(); // anasayfaya geri dönmek icin yada baskayere yönlendirmek icin kullanilir
 
    const [query, setQuery] = useState('');  //setQuery deki degisiklik ile query i degistrimis olucaz
-   console.log(query)
-   const handleSearch=()=>{}
+   //console.log(query) searc yazilan lari yakaliyoruz
+   const handleSearch=()=>{    //yukarida searchde yazdigim seyi URI formatina cevircez. Yoksa bisey yazildiginda program patlar
+       if(query.trim()){        //   eger query bos degilse    yönlenditme islemi yapicaz -> router.push('/search?query')
+            router.push(`/search?query=${encodeURIComponent(query)}`)   // istedigimizyere yönlendirip icerdeki datayi URI ceviriyo.bosluk tire vs varsa degistricek
+    }
+
+    }                                     
  
 
   return (
@@ -33,7 +38,7 @@ const Header = () => {
         </div>
         <div className="hidden md:flex relative md:min-w-96 lg:w-1/2">
           <Input className="w-full border-2" onChange={(e)=>setQuery(e.target.value)} /> {/* onChange->  senin degerin degistigi zaman bunu e  ye atayacaksin yani setQuery */}
-          <Button variant="link" className="absolute right-1">
+          <Button onClick={handleSearch} variant="link" className="absolute right-1">
             <Search />
           </Button>
         </div>

@@ -12,7 +12,11 @@ const RoutesLayout = ({children}:RoutesLayoutProps) => {
 
     <>
         <Header/>
+
+        <div className='min-h-screen'> 
         {children}   {/* anasayfa page */}
+        </div>
+
         <Footer/>
     </>
   )
