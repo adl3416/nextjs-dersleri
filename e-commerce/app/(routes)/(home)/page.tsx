@@ -14,13 +14,14 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Menu } from "lucide-react";
 import Hero from "../components/Hero";
+import ProductList from "../components/Product/ProductList";
 
 export default function Home() {
   return (
  <div>
 
   <Hero/>
-  Home
+  <ProductList/>
  
  </div>
   );
