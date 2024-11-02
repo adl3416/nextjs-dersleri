@@ -11,6 +11,7 @@ import {
 import { title } from 'process'
 import Image from 'next/image'
 import { Button } from '@/components/ui/button'
+import ProductModal from './ProductModal'
 
 
 interface ProductItemProps{
@@ -39,7 +40,7 @@ const ProductItem = ({product}: ProductItemProps) => {
     </div>
   </CardContent>
   <CardFooter className='flex justify-between'>
-   <Button variant='destructive'>Detail</Button>
+   <ProductModal product={product}/>
    <Button variant='default'>Add To Card</Button>
   </CardFooter>
 </Card>
