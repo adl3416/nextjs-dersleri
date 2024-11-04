@@ -7,7 +7,7 @@ interface AuthLayoutProps{
 
 const AuthLayout = ({children}:AuthLayoutProps) => {
   return (
-    <div className='flex flex-row items-center justify-center'>
+    <div className='flex flex-row items-center justify-center space-x-14'>
         <div className='hidden lg:block lg:w-2/5 h-screen'>
         <Image
         alt='logo'
@@ -20,7 +20,7 @@ const AuthLayout = ({children}:AuthLayoutProps) => {
         </div>
 
 
-        <div className='w-3/5'>
+        <div className=' w-full md:w-3/5 md:mt-0 mt-16'>  {/*  normalde  w-full olsun md ve sonrasi md:w-3/5 olsun, normalde margintop-0 ama md ve sonrasi mt-16 */}
             {children}
         </div>
     </div>

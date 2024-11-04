@@ -16,8 +16,11 @@
   @apply underline !important
 }
 
+
+
+ /*  giris islemi yaparken form dark modde okunmasi icin} */
 .validatLabel{
-  @apply text-black dark:text-white  !important;
+  @apply text-black dark:text-white  !important; 
 }
 
 .validatError{
