@@ -14,7 +14,7 @@ const AuthLayout = ({children}:AuthLayoutProps) => {
         src={`/login.jpg`}
         width={1080}
         height={1920}
-        className='w-full h-screen object-cover brightness-[.7]'  // brightness-[.7]' :resmi  karartiyor
+        className='w-full h-screen object-cover brightness-[.6]'  // brightness-[.7]' :resmi  karartiyor
         />
        
         </div>
