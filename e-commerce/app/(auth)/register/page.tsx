@@ -18,6 +18,9 @@ import { Input } from "@/components/ui/input"
 import { Label } from '@radix-ui/react-label'
 import Link from 'next/link'
 import { start } from 'repl'
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
+import { Checkbox } from '@/components/ui/checkbox'
+
 
 const formSchema = z.object({
   fullname: z.string().min(2, {
@@ -74,9 +77,6 @@ function onSubmit(values: z.infer<typeof formSchema>) {
 }
 
 
-
-
-
 const RegisterPage = () => {
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -89,7 +89,7 @@ const RegisterPage = () => {
       email: "",
       birtDate: "",
       startDate: "",
-      gender: "",
+      gender: "Male",
       jobType: []
       
      
@@ -206,7 +206,22 @@ const RegisterPage = () => {
             <FormItem>
               <FormLabel className='validatLabel'>Gender</FormLabel>
               <FormControl>
-                <Input placeholder="gender" {...field} />
+
+                <RadioGroup  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                  className="flex flex-row space-x-2"
+                  >
+                     <RadioGroupItem value="Male" id="gender-male"/>
+                     <Label  htmlFor="gender-male">Male</Label>
+
+                     <RadioGroupItem value="Female" id="gender-female"/>
+                     <Label  htmlFor="gender-female">Female</Label>
+
+                     <RadioGroupItem value="Other" id="gender-other"/>
+                     <Label  htmlFor="gender-other">Other</Label>
+
+                </RadioGroup>
+
               </FormControl>
              
               <FormMessage  className='validatError' />
@@ -223,12 +238,43 @@ const RegisterPage = () => {
             <FormItem>
               <FormLabel className='validatLabel'>jobType</FormLabel>
               <FormControl>
-                <Input placeholder="jobType" {...field} />
+                <div className="space-x-2">
+                  <Checkbox
+                    checked={field.value.includes("Remote")}
+                    onCheckedChange={(checked) => {
+                      const newValue = checked
+                        ? [...field.value, "Remote"]
+                        : field.value.filter((value: string) => value !== "Remote")
+                      field.onChange(newValue)
+                    }}
+                  />
+                  <Label>Remote</Label>
+                  <Checkbox
+                    checked={field.value.includes("Hybrid")}
+                    onCheckedChange={(checked) => {
+                      const newValue = checked
+                        ? [...field.value, "Hybrid"]
+                        : field.value.filter((value: string) => value !== "Hybrid")
+                      field.onChange(newValue)
+                    }}
+                  />
+                  <Label>Hybrid</Label>
+                  <Checkbox
+                    checked={field.value.includes("Office")}
+                    onCheckedChange={(checked) => {
+                      const newValue = checked
+                        ? [...field.value, "Office"]
+                        : field.value.filter((value: string) => value !== "Office")
+                      field.onChange(newValue)
+                    }}
+                  />
+                  <Label>Office</Label>
+                </div>
+
+
               </FormControl>
-             
-              <FormMessage  className='validatError' />
+              <FormMessage className='validatError' />
             </FormItem>
-            
           )}
         />
 
